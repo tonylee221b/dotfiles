@@ -87,17 +87,23 @@ nvim_lsp.tsserver.setup {
   capabilities = capabilities
 }
 
+nvim_lsp.ccls.setup {
+  on_attach = on_attach,
+  filetypes = { "cpp", "c" },
+  capabilities = capabilities
+}
+
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
-  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'pandoc' },
+  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'scss', 'markdown', 'cpp', 'c' },
   init_options = {
-    linters = {
+    --[[ linters = {
       eslint = {
-        command = 'eslint_d',
+        command = 'eslint',
         rootPatterns = { '.git' },
         debounce = 100,
         args = { '--stdin', '--stdin-filename', '%filepath', '--format', 'json' },
-        sourceName = 'eslint_d',
+        sourceName = 'eslint',
         parseJson = {
           errorsRoot = '[0].messages',
           line = 'line',
@@ -118,20 +124,20 @@ nvim_lsp.diagnosticls.setup {
       javascriptreact = 'eslint',
       typescript = 'eslint',
       typescriptreact = 'eslint',
-    },
+    },]]--
+
     formatters = {
-      eslint_d = {
-        command = 'eslint_d',
+      --[[eslint = {
+        command = 'eslint',
         rootPatterns = { '.git' },
-        args = { '--stdin', '--stdin-filename', '%filename', '--fix-to-stdout' },
-        rootPatterns = { '.git' },
-      },
-      prettier = {
-        command = 'prettier_d_slim',
-        rootPatterns = { '.git' },
-        -- requiredFiles: { 'prettier.config.js' },
         args = { '--stdin', '--stdin-filepath', '%filename' }
-      }
+        }, ]]--
+      prettier = {
+       command = 'prettier',
+       rootPatterns = { '.git' },
+       -- requiredFiles: { 'prettier.config.js' },
+       args = { '--stdin', '--stdin-filepath', '%filename' }
+      },
     },
     formatFiletypes = {
       css = 'prettier',
@@ -139,13 +145,24 @@ nvim_lsp.diagnosticls.setup {
       javascriptreact = 'prettier',
       json = 'prettier',
       scss = 'prettier',
-      less = 'prettier',
+      markdown = 'prettier',
       typescript = 'prettier',
       typescriptreact = 'prettier',
       json = 'prettier',
-    }
+      cpp = 'prettier',
+      c = 'prettier'
+   }
   }
 }
+
+-- eslint
+nvim_lsp.eslint.setup{
+  on_attach = on_attach,
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "cpp", "c" },
+  capabilities = capabilities
+}
+
+
 
 -- icon
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

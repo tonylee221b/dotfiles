@@ -90,22 +90,27 @@ endif
 " File types "{{{
 " ---------------------------------------------------------------------
 " JavaScript
-au BufNewFile,BufRead *.es6 setf javascript
+" au BufNewFile,BufRead *.es6 setf javascript
+" au BufNewFile,BufRead *.js setf javascript
+" au BufNewFile,BufRead *.jsx setf javascriptreact
+
 " TypeScript
-au BufNewFile,BufRead *.tsx setf typescriptreact
+" au BufNewFile,BufRead *.tsx setf typescriptreact
 " Markdown
-au BufNewFile,BufRead *.md set filetype=markdown
-au BufNewFile,BufRead *.mdx set filetype=markdown
+" au BufNewFile,BufRead *.md set filetype=markdown
+" au BufNewFile,BufRead *.mdx set filetype=markdown
 " Flow
-au BufNewFile,BufRead *.flow set filetype=javascript
+" au BufNewFile,BufRead *.flow set filetype=javascript
 " Fish
-au BufNewFile,BufRead *.fish set filetype=fish
+" au BufNewFile,BufRead *.fish set filetype=fish
 
-set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
+" set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
 
-autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
-autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
-autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+" autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
+" autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
+" autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+
+autocmd BufWritePre *.tsx, *.ts, *jsx, *.js EslintFixAll
 
 "}}}
 
@@ -134,10 +139,27 @@ if exists("&termguicolors") && exists("&winblend")
   set wildoptions=pum
   set pumblend=5
   set background=dark
-  " Use Jellybeans
-  colorscheme jellybeans
+
+  "let g:PaperColor_Theme_Options = {
+  "\   'theme': {
+  "\     'default.dark': {
+  "\       'transparent_background': 1
+  "\     }
+  "\   }
+  "\ }
+
+  " Use papercolor-theme
+  "colorscheme PaperColor
+  colorscheme gruvbox
+
+  hi! Normal ctermbg=NONE guibg=NONE
+  hi! NonText ctermbg=NONE guibg=NONE
+
+
 endif
 
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
 "}}}
 
 " Extras "{{{
@@ -145,8 +167,9 @@ endif
 set exrc
 "}}}
 
-" NERD Tree close on file open
+" NERD Tree close on file open "{{{
 " ---------------------------------------------------------------------
 let g:NERDTreeQuitOnOpen=1
+"}}}
 
 " vim: set foldmethod=marker foldlevel=0:
