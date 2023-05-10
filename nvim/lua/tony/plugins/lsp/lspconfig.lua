@@ -64,7 +64,7 @@ lspconfig["html"].setup({
 })
 
 -- configure gdscript
-lspconfig.gdscript.setup({
+lspconfig["gdscript"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
@@ -107,7 +107,7 @@ lspconfig["emmet_ls"].setup({
 })
 
 -- configure lua server (with special settings)
-lspconfig["sumneko_lua"].setup({
+lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = { -- custom settings for lua
@@ -127,8 +127,21 @@ lspconfig["sumneko_lua"].setup({
 	},
 })
 
+-- configure python
+lspconfig.pylsp.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 -- configure dart server
 lspconfig["dartls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+})
+
+-- configure c/cpp server
+lspconfig.clangd.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	cmd = { "clangd", "--offset-encoding=utf-16" },
 })

@@ -80,7 +80,7 @@ return require("packer").startup(function(use)
 
 	-- bufferline
 	-- using packer.nvim
-	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
+	use({ "akinsho/bufferline.nvim", tag = "v3.*" })
 
 	-- C#
 	use("omnisharp/omnisharp-vim")

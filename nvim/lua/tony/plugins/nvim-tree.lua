@@ -4,8 +4,8 @@ if not status then
 end
 
 -- recommended settings -> no netrw
-vim.g.loaded = true
-vim.g.loaded_netrwPlugin = true
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 nt.setup({
 	actions = {
@@ -17,3 +17,9 @@ nt.setup({
 		},
 	},
 })
+
+local function open_nvim_tree()
+	require("nvim-tree.api").tree.open()
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })

@@ -21,7 +21,7 @@ mason_lspconfig.setup({
 		"html",
 		"cssls",
 		"tailwindcss",
-		"sumneko_lua",
+		"lua_ls",
 		"omnisharp_mono",
 		"rust_analyzer",
 		"emmet_ls",
@@ -35,6 +35,5 @@ mason_null_ls.setup({
 		"eslint_d",
 	},
 	automatic_setup = true,
+	handler = {},
 })
-
-require("mason-null-ls").setup_handlers()
