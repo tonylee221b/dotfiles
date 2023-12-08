@@ -1,3 +1,4 @@
-vim.cmd([[
-let g:ale_linters = { "cs" : ["OmniSharp"]}
-]])
+-- vim.cmd([[
+-- let g:ale_fixers = ['prettierd', 'eslint_d']
+-- let g:ale_fix_on_save = 1
+-- ]])

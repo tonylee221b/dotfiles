@@ -17,6 +17,7 @@ mason.setup()
 
 mason_lspconfig.setup({
 	ensure_installed = {
+		"clangd",
 		"tsserver",
 		"html",
 		"cssls",
@@ -25,15 +26,20 @@ mason_lspconfig.setup({
 		"omnisharp_mono",
 		"rust_analyzer",
 		"emmet_ls",
+		"svelte",
+		"jdtls",
+		"gopls",
 	},
 })
 
 mason_null_ls.setup({
 	ensure_installed = {
+		"clangd",
 		"prettierd",
-		"stylua",
 		"eslint_d",
+		"stylua",
+		"gofumpt",
+		"goimports",
 	},
 	automatic_setup = true,
-	handler = {},
 })

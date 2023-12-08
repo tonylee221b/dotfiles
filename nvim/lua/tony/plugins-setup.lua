@@ -9,6 +9,7 @@ return require("packer").startup(function(use)
 
 	-- colorscheme
 	use("rose-pine/neovim")
+	use("bluz71/vim-nightfly-colors")
 
 	-- tmux && split window navigation
 	use("christoomey/vim-tmux-navigator")
@@ -94,4 +95,35 @@ return require("packer").startup(function(use)
 	-- Futter && dart
 	use("dart-lang/dart-vim-plugin")
 	use("akinsho/flutter-tools.nvim")
+
+	-- snippets for cmake
+	use({
+		"madskjeldgaard/cheeky-snippets.nvim",
+		requires = {
+			"L3MON4D3/LuaSnip",
+		},
+		config = function()
+			local cheeky = require("cheeky")
+			cheeky.setup({
+				langs = {
+					all = true,
+					lua = true,
+					cpp = true,
+					asm = true,
+					cmake = true,
+					markdown = true,
+					supercollider = true,
+				},
+			})
+		end,
+	})
+
+	-- git
+	use("tpope/vim-fugitive")
+
+	-- Java
+	use("mfussenegger/nvim-jdtls")
+
+	-- terminal
+	use("akinsho/toggleterm.nvim")
 end)

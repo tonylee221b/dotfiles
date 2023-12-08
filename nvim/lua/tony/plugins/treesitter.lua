@@ -26,6 +26,7 @@ treesitter.setup({
 		"lua",
 		"vim",
 		"gitignore",
-		"dart",
+		"java",
+		"go",
 	},
 })

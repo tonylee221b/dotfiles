@@ -99,6 +99,12 @@ _G.packer_plugins = {
     path = "/Users/tony/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
+  ["cheeky-snippets.nvim"] = {
+    config = { "\27LJ\2\n€\1\0\0\5\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\4\0005\4\3\0=\4\5\3B\1\2\1K\0\1\0\nlangs\1\0\0\1\0\a\blua\2\basm\2\bcpp\2\ball\2\ncmake\2\18supercollider\2\rmarkdown\2\nsetup\vcheeky\frequire\0" },
+    loaded = true,
+    path = "/Users/tony/.local/share/nvim/site/pack/packer/start/cheeky-snippets.nvim",
+    url = "https://github.com/madskjeldgaard/cheeky-snippets.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/tony/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -199,6 +205,11 @@ _G.packer_plugins = {
     path = "/Users/tony/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
+  ["nvim-jdtls"] = {
+    loaded = true,
+    path = "/Users/tony/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
+    url = "https://github.com/mfussenegger/nvim-jdtls"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/tony/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -249,10 +260,25 @@ _G.packer_plugins = {
     path = "/Users/tony/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["toggleterm.nvim"] = {
+    loaded = true,
+    path = "/Users/tony/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/Users/tony/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
   ["vim-maximizer"] = {
     loaded = true,
     path = "/Users/tony/.local/share/nvim/site/pack/packer/start/vim-maximizer",
     url = "https://github.com/szw/vim-maximizer"
+  },
+  ["vim-nightfly-colors"] = {
+    loaded = true,
+    path = "/Users/tony/.local/share/nvim/site/pack/packer/start/vim-nightfly-colors",
+    url = "https://github.com/bluz71/vim-nightfly-colors"
   },
   ["vim-surround"] = {
     loaded = true,
@@ -267,6 +293,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: cheeky-snippets.nvim
+time([[Config for cheeky-snippets.nvim]], true)
+try_loadstring("\27LJ\2\n€\1\0\0\5\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\4\0005\4\3\0=\4\5\3B\1\2\1K\0\1\0\nlangs\1\0\0\1\0\a\blua\2\basm\2\bcpp\2\ball\2\ncmake\2\18supercollider\2\rmarkdown\2\nsetup\vcheeky\frequire\0", "config", "cheeky-snippets.nvim")
+time([[Config for cheeky-snippets.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

@@ -1,8 +1,10 @@
 local opt = vim.opt
 
 -- line numbers
-opt.relativenumber = true
 opt.nu = true
+
+-- relative numbers
+opt.rnu = true
 
 -- tabs && indentation
 opt.tabstop = 2

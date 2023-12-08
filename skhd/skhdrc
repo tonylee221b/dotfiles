@@ -1,0 +1,35 @@
+# Changing Window Focus
+# change window focus within space
+cmd - j : yabai -m window --focus south
+cmd - k : yabai -m window --focus north
+cmd - h : yabai -m window --focus west
+cmd - l : yabai -m window --focus east
+
+# change focus between external displays(left and right)
+ctrl - s : yabai -m display --focus west
+ctrl - g : yabai -m display --focus east
+
+# Modifying the Layout
+# rotate layout clockwise
+shift + cmd - r : yabai -m space --rotate 270
+
+# flip along y-axis
+shift + cmd - y : yabai -m space --mirror y-axis
+
+# flip along x-axis
+shift + cmd - x : yabai -m space --mirror x-axis
+
+
+# Modifying Window Size
+# Maximize a window
+shift + cmd - m : yabai -m window --toggle zoom-fullscreen
+
+# balance out tree of windows (resize to occupy same area)
+shift + cmd - e : yabai -m space --balance
+
+# Moving Windows around
+# swap windows
+shift + cmd - j : yabai -m window --swap south
+shift + cmd - k : yabai -m window --swap north
+shift + cmd - h : yabai -m window --swap west
+shift + cmd - l : yabai -m window --swap east

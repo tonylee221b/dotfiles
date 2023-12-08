@@ -12,20 +12,6 @@ end
 
 local keymap = vim.keymap -- for conciseness
 
-local protocol = require("vim.lsp.protocol")
-
-local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
-local enable_format_on_save = function(_, bufnr)
-	vim.api.nvim_clear_autocmds({ group = augroup_format, buffer = bufnr })
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		group = augroup_format,
-		buffer = bufnr,
-		callback = function()
-			vim.lsp.buf.format({ bufnr = bufnr })
-		end,
-	})
-end
-
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
 	-- keybind options
@@ -134,9 +120,14 @@ lspconfig.pylsp.setup({
 })
 
 -- configure dart server
-lspconfig["dartls"].setup({
+lspconfig.dartls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	cmd = {
+		"/opt/homebrew/bin/dart",
+		"language-server",
+		"--protocol=lsp",
+	},
 })
 
 -- configure c/cpp server
@@ -144,4 +135,22 @@ lspconfig.clangd.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	cmd = { "clangd", "--offset-encoding=utf-16" },
+})
+
+-- configure cmake server
+lspconfig.cmake.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure svelte lsp
+lspconfig.svelte.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure go lsp
+lspconfig.gopls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
 })
